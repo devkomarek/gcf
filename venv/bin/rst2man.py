@@ -1,4 +1,4 @@
-#!/home/devkomarek/Repo/gcf_pkg/venv/bin/python
+#!/home/devkomarek/Repo/gcf/venv/bin/python
 
 # Author: 
 # Contact: grubert@users.sf.net

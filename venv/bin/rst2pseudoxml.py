@@ -1,4 +1,4 @@
-#!/home/devkomarek/Repo/gcf_pkg/venv/bin/python
+#!/home/devkomarek/Repo/gcf/venv/bin/python
 
 # $Id: rst2pseudoxml.py 4564 2006-05-21 20:44:42Z wiemann $
 # Author: David Goodger <goodger@python.org>
