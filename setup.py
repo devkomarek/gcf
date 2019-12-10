@@ -4,16 +4,15 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
      name='google-cloud-functions',  
+     packages = ['googlecloudfunctions'],
      version='0.1',
-     scripts=['gcf'] ,
      author="Lukasz Szymszon",
      author_email="devkomarek@gmail.com",
      description="GCF utility package",
      long_description=long_description,
      long_description_content_type="text/markdown",
-     url="https://github.com/devkomarek/gcf",
-     download_url="https://github.com/devkomarek/gcf/releases/tag/0.1",
-     packages=setuptools.find_packages(),
+     url="https://github.com/devkomarek/google-cloud-functions",
+     download_url="https://github.com/devkomarek/google-cloud-functions/releases/tag/0.1",
      classifiers=[
          "Programming Language :: Python :: 3",
          "License :: OSI Approved :: MIT License",
