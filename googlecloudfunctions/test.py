@@ -1,1 +1,1 @@
-print('hello world pkg')
+print('hello world pkg deploy')
