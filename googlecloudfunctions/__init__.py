@@ -13,13 +13,11 @@ class _HttpWrapper:
         self.request = request
 
     def send_response(self, result):
-        if self.request.method == 'OPTIONS':
-            return ('', 204, HEADERS)
         return (jsonify(result[0]), result[1], HEADERS)
 
 
 class ClientWrapper:
-    def __init__(self, client,*args, **kwargs):
+    def __init__(self, client, *args, **kwargs):
         self.template_client = client
         self.arguments = args
         self.kw_arguments = kwargs
@@ -39,6 +37,8 @@ class ClientWrapper:
 
 def gcf(func):
     def wrapper(*args):
+        if args[0].method == 'OPTIONS':
+            return ('', 204, HEADERS)
         try:
             result = func(args[0])
         except Exception as error:
