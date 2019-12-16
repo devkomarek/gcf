@@ -38,11 +38,11 @@ class ClientWrapper:
 def gcf(func):
     def wrapper(*args):
         if args[0].method == 'OPTIONS':
-            return ('', 204, HEADERS)
+            return (jsonify(''), 204, HEADERS)
         try:
             result = func(args[0])
         except Exception as error:
-            return ({'error': str(error)}, 500, HEADERS)
+            return (jsonify({'error': str(error)}), 500, HEADERS)
         return _HttpWrapper(args[0]).send_response(result)
 
     return wrapper
