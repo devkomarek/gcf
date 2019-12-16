@@ -18,6 +18,24 @@ class _HttpWrapper:
         return (jsonify(result[0]), result[1], HEADERS)
 
 
+class ClientWrapper:
+    def __init__(self, client, **kwargs):
+        self.template_client = client
+        self.arguments = kwargs
+        self.create_client()
+
+    def create_client(self):
+        self.client = self.template_client(**self.arguments)
+
+    def execute(self, f, *args, **kwargs):
+        try:
+            response = f(*args, **kwargs)
+        except Exception as exc:
+            self.create_client()
+            response = getattr(self.client, f.__name__)(*args, **kwargs)
+        return response
+
+
 def gcf(func):
     def wrapper(*args):
         try:
