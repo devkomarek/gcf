@@ -19,13 +19,14 @@ class _HttpWrapper:
 
 
 class ClientWrapper:
-    def __init__(self, client, **kwargs):
+    def __init__(self, client,*args, **kwargs):
         self.template_client = client
-        self.arguments = kwargs
+        self.arguments = args
+        self.kw_arguments = kwargs
         self.create_client()
 
     def create_client(self):
-        self.client = self.template_client(**self.arguments)
+        self.client = self.template_client(*self.arguments, **self.kw_arguments)
 
     def execute(self, f, *args, **kwargs):
         try:
